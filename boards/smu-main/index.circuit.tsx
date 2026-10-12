@@ -41,7 +41,7 @@ export default () => (
     height="100mm"
     layers={4}
     minTraceWidth="0.15mm"
-    minTraceToPadEdgeClearance="0.2mm"
+    minTraceToPadEdgeClearance="0.1mm" // = KiCad clearance; JLCPCB 4-layer allows 0.09 mm, the router spaces tracks ~0.115 mm
     minBoardEdgeClearance="0.5mm"
     minViaHoleDiameter="0.3mm"
     minViaPadDiameter="0.6mm"
