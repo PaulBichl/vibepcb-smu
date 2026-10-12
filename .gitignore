@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+.hatch/
+__pycache__/
+out/
+docs/tscircuit-llms.txt
+boards/**/*.circuit.json
+*-backups/
+*.kicad_prl
+~*.lck
+fp-info-cache
+.tscircuit/
+dist/
+boards/**/build.log

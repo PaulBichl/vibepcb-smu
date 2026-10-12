@@ -1,0 +1,60 @@
+* SMU control loop: OPA548 inverting summing amp (CV, Kelvin via S-) + two
+* current-limit integrators OR-ed into the summing node by diodes.
+* DAC8563 on 3.3 V, gain 1, 0..2.5 V: Vout(S+ - S-) = 30 V - 24*VSET (2.5 V ref);
+* current limit +-ISET/2 [A] (1 V/A sense).
+.include /home/paulb/GIT_Clones/VibePCB-smu/boards/smu-main/sim/models.inc
+.param vset=0.8333 iset=2 rl=20 vset2=vset tstep=1 cf=4.7n cint=47n rz=12k ihw=1.5 ri=10k rc=10k
+VP vplus 0 35
+VN vminus 0 -35
+VA5 va5 0 5
+VAN van 0 -4.5
+VREFN refn 0 -2.5
+VS vsetn 0 PWL(0 {vset} {tstep} {vset} {tstep+1e-6} {vset2})
+VI isetn 0 {iset}
+* ---- power stage
+* Rin = 2x 10k in parallel, Roff from REFN = -2.5 V
+Rin vsetn n 5k
+Roff refn n 10k
+Rf splus n 120k
+* HF feedback straight from the amplifier output (isolates capacitive loads / sense leads)
+Cf out n {cf}
+Rpa sminus p 120k
+* Kelvin divider: 120k / (Rin||Roff = 3x 10k in parallel)
+Rpb p 0 3.3333k
+* OPA548 hardware limit: firmware programs it to ~1.1*Ilim + 0.15 A (ILIM current sink)
+XPA p n out vplus vminus opa548 ilim={ihw}
+Rrly out hi 0.05
+Rsp hi splus 100
+Rsl out splus 4.7k
+Rsm lo sminus 100
+* ---- load + shunt
+RL hi lo {rl}
+CL hi lo 1u
+Rs lo 0 0.1
+* ---- current sense: INA828 G=10, inputs swapped -> vi = -1 V/A (700 kHz BW)
+Bina vi0 0 V=-10*V(lo)
+Rbw vi0 vi 10
+Cbw vi 0 22.7n
+* ---- thresholds: DAC B straight through 20k; -DAC B from an inverting op amp
+Bthn isetneg 0 V=-V(isetn)
+* ---- positive limit (output rises when I > Ith -> injects + current into n)
+* PI zero (rz*cint) placed on the power stage pole rf*cf; the clamp diode keeps the idle
+* integrator 0.6 V below its input (anti-windup)
+Ria vi a {ri}
+Rta isetn a {2*ri}
+Ca a cpa {cint}
+Rza cpa outp {rz}
+XP 0 a outp va5 van opa2192
+Dcp a outp D1N4148
+Dop outp dpo D1N4148
+Rcp dpo n {rc}
+* ---- negative limit (output falls when I < -Ith -> pulls current out of n)
+Rib vi b {ri}
+Rtb isetneg b {2*ri}
+Cb b cpb {cint}
+Rzb cpb outn {rz}
+XN 0 b outn va5 van opa2192
+Dcn outn b D1N4148
+Don dno outn D1N4148
+Rcn n dno {rc}
+.end
