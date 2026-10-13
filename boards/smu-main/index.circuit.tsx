@@ -364,7 +364,7 @@ export default () => (
     {net("ETH_RST", [".U21 > .RSTn"])}
 
     {/* ============================ analog control & measurement ============================ */}
-      <DAC8563SDGSR name="U30" pcbX={24} pcbY={23} />
+      <DAC8563SDGSR name="U30" pcbX={24.0} pcbY={22.5} />
       <C name="C80" pcbX={19.5} pcbY={23} pcbRotation={90} v="100nF" />
       <C name="C81" pcbX={17.5} pcbY={23} pcbRotation={90} v="1uF" />
       <C name="C82" pcbX={28.5} pcbY={23} pcbRotation={90} v="100nF" />
