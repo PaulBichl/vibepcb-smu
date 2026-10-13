@@ -228,6 +228,8 @@ export default () => (
     {/* ESP32-S3-MINI-1, antenna over the rear edge, copper keepout under it */}
     <ESP32_S3_MINI_1_N8 name="U20" pcbX={-28} pcbY={36.4} />
     <keepout shape="rect" pcbX={-28} pcbY={47} width="18mm" height="6mm" layers={["top", "inner1", "inner2", "bottom"]} excludeRefs={[".U20"]} />
+    {/* no top-layer routing through the module's underside (inside its pad ring) */}
+    <keepout shape="rect" pcbX={-28} pcbY={36.4} width="12.8mm" height="12.8mm" layers={["top"]} excludeRefs={[".U20"]} />
       <C name="C50" pcbX={-38} pcbY={42.5} pcbRotation={90} v="10uF" />
       <C name="C51" pcbX={-38} pcbY={39} pcbRotation={90} v="100nF" />
       <R name="R50" pcbX={-17} pcbY={43} v="10k" />
