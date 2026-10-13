@@ -7,7 +7,7 @@ voltage and current on two 4-digit 7-segment displays. Designed with
 
 | Board | Layers | Size | Content |
 |-------|--------|------|---------|
-| `boards/smu-main` | 4 (top / GND / route / bottom+GND) | 160 x 100 mm | USB-C PD input, rail converters, OPA548 output stage, control loop, 24-bit measurement, ESP32-S3 + W5500 |
+| `boards/smu-main` | 4 (top+GND / GND / route+GND / bottom+GND) | 160 x 100 mm | USB-C PD input, rail converters, OPA548 output stage, control loop, 24-bit measurement, ESP32-S3 + W5500 |
 | `boards/smu-front` | 2 | 150 x 45 mm | 2x SR420561N displays, TM1640 driver, 6 status LEDs, OUTPUT / MODE buttons |
 
 The boards are joined by a 10-way ribbon (main J5 <-> front J1). The output terminal (main J3:

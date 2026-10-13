@@ -87,6 +87,7 @@ export default () => (
     <hole name="H3" diameter="3.2mm" pcbX={-71} pcbY={-18.5} />
     <hole name="H4" diameter="3.2mm" pcbX={71} pcbY={-18.5} />
 
+    <copperpour connectsTo="net.GND" layer="top" clearance="0.3mm" boardEdgeMargin="0.5mm" />
     <copperpour connectsTo="net.GND" layer="bottom" clearance="0.3mm" boardEdgeMargin="0.5mm" />
   </board>
 )

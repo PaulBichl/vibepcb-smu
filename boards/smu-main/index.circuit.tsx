@@ -1,5 +1,5 @@
 // VibePCB SMU - main board: 1-channel 4-quadrant source/measure unit, +-30 V / +-1 A.
-// 160 x 100 mm, 4 layers (top / GND / route / bottom+GND). Rear edge (+y): USB-C PD input,
+// 160 x 100 mm, 4 layers (top+GND / GND / route+GND / bottom+GND). Rear edge (+y): USB-C PD input,
 // RJ45, OPA548 tab (bolts to a heatsink on the rear panel). Front edge (-y): output terminal
 // (HI, S+, S-, LO -> binding posts) and the ribbon to the display board (boards/smu-front).
 // Build with: hatch run pcb all smu-main
@@ -578,7 +578,9 @@ export default () => (
     <silkscreentext text="VibePCB SMU v1  +-30V +-1A" pcbX={20} pcbY={-46} fontSize="1.5mm" />
     <silkscreentext text="HI   S+   S-   LO" pcbX={62} pcbY={-40} fontSize="1.2mm" />
 
+    <copperpour connectsTo="net.GND" layer="top" clearance="0.3mm" boardEdgeMargin="0.5mm" />
     <copperpour connectsTo="net.GND" layer="inner1" clearance="0.3mm" boardEdgeMargin="0.5mm" />
+    <copperpour connectsTo="net.GND" layer="inner2" clearance="0.3mm" boardEdgeMargin="0.5mm" />
     <copperpour connectsTo="net.GND" layer="bottom" clearance="0.3mm" boardEdgeMargin="0.5mm" />
   </board>
 )
