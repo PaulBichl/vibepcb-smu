@@ -230,12 +230,12 @@ export default () => (
     <keepout shape="rect" pcbX={-28} pcbY={47} width="18mm" height="6mm" layers={["top", "inner1", "inner2", "bottom"]} excludeRefs={[".U20"]} />
     {/* no top-layer routing through the module's underside (inside its pad ring) */}
     <keepout shape="rect" pcbX={-28} pcbY={36.4} width="12.8mm" height="12.8mm" layers={["top"]} excludeRefs={[".U20"]} />
-      <C name="C50" pcbX={-38} pcbY={42.5} pcbRotation={90} v="10uF" />
-      <C name="C51" pcbX={-38} pcbY={39} pcbRotation={90} v="100nF" />
+      <C name="C50" pcbX={-39.0} pcbY={42.5} pcbRotation={90} v="10uF" />
+      <C name="C51" pcbX={-39.0} pcbY={39} pcbRotation={90} v="100nF" />
       <R name="R50" pcbX={-17} pcbY={43} v="10k" />
       <C name="C52" pcbX={-17} pcbY={40.5} v="1uF" />
       <TS_1187A_B_A_B name="SW1" pcbX={-15} pcbY={33} />
-      <R name="R51" pcbX={-38} pcbY={35} pcbRotation={90} v="10k" />
+      <R name="R51" pcbX={-39.0} pcbY={35} pcbRotation={90} v="10k" />
       <TS_1187A_B_A_B name="SW2" pcbX={-44} pcbY={21} />
       <R name="R52" pcbX={-33} pcbY={24} pcbRotation={90} v="4.7k" />
       <R name="R53" pcbX={-31} pcbY={24} pcbRotation={90} v="4.7k" />
