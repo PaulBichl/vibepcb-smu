@@ -1,0 +1,160 @@
+(footprint "MMBT5401_RANGE_200-300"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 0189e940-2b99-e01f-58bd-a97e7a1e8d23)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "MMBT5401_RANGE_200-300"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 58dc5880-3d95-399f-224e-1abe0706fbdd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 1eeafb00-0e38-ce5f-3b5c-97be6880611d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 72b1c720-19f7-4761-595f-aa1e33496463)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C8326"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 5d6bef16-04fc-130a-6764-152a3633e8b6)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "MMBT5401(RANGE:200-300)"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 0684dbc0-3707-bac1-678a-99c267f2873d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "Q3"
+    (at 0 2.5 180)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start 0.7000000000000002 1.6499999999999986)
+    (end -1 1.6499999999999986)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1 1.6499999999999986)
+    (end -1 0.8249999999999993)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 0.7000000000000002 -1.6499999999999986)
+    (end -1 -1.6499999999999986)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1 -1.6499999999999986)
+    (end -1 -0.8249999999999993)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_rect
+    (start -1.75 -1.74)
+    (end 1.75 1.74)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd roundrect
+    (at 1 0.9499999999999993 180)
+    (size 1 0.65)
+    (layers F.Cu F.Paste F.Mask)
+    (roundrect_rratio 0.125)
+    (uuid 6fa32ea0-3e68-86a1-138b-c41e65800edd)
+  )
+  (pad "2" smd roundrect
+    (at 1 -0.9499999999999993 180)
+    (size 1 0.65)
+    (layers F.Cu F.Paste F.Mask)
+    (roundrect_rratio 0.125)
+    (uuid 522735d6-6592-2896-78fd-1b567397f1ea)
+  )
+  (pad "3" smd roundrect
+    (at -1 0 180)
+    (size 1 0.65)
+    (layers F.Cu F.Paste F.Mask)
+    (roundrect_rratio 0.125)
+    (uuid 0cdb6660-16a7-435f-3a29-ed1e5dac96dd)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C8326.step"
+    (offset
+      (xyz 0.000012700000070253735 -0.0000126999999565669 -0.050795)
+    )
+    (rotate
+      (xyz 0 0 -180)
+    )
+  )
+)

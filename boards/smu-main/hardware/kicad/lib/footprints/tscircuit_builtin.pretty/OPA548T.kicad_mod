@@ -1,0 +1,284 @@
+(footprint "OPA548T"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 07e1309e-7f36-933e-0974-0a226de1587e)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "OPA548T"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 42fd9516-6f65-adca-21c8-f0aa2bd3cc76)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6c33c672-1c76-d6ee-5ade-8bb22dcc11ae)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 63cd9540-5b54-d3c0-52dc-12404a6350c0)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C138712"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 17e61c80-2d4d-da81-42b5-9882581d5683)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "OPA548T"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 73b60262-538f-0362-3368-046213410562)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "U40"
+    (at -0.01269999999999527 -8.062089 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start -5.120640000000009 -5.515229000000012)
+    (end 5.120640000000009 -5.515229000000012)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -3.6042599999999965 -2.3834090000000074)
+    (end -5.120640000000009 -2.3834090000000074)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -5.120640000000009 -2.3834090000000074)
+    (end -5.120640000000009 -7.026529000000018)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -5.120640000000009 -7.026529000000018)
+    (end 5.120640000000009 -7.026529000000018)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 5.120640000000009 -7.026529000000018)
+    (end 5.120640000000009 -2.3834090000000074)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 5.120640000000009 -2.3834090000000074)
+    (end 3.6042600000000107 -2.3834090000000074)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.4731999999999914 -2.3834090000000074)
+    (end -1.0642599999999902 -2.3834090000000074)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 1.0642600000000186 -2.3834090000000074)
+    (end 1.4757400000000018 -2.3834090000000074)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 1.8491199999999992 -7.026529000000018)
+    (end 1.8491199999999992 -5.515229000000012)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -3.809999999999988 -2.3834090000000074)
+    (end -3.809999999999988 0.24549099999999413)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.269999999999996 -2.3834090000000074)
+    (end -1.269999999999996 0.23025099999998844)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 1.2700000000000102 -2.3834090000000074)
+    (end 1.2700000000000102 0.23025099999998844)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 3.8100000000000023 -2.3834090000000074)
+    (end 3.8100000000000023 0.23025099999998844)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.849119999999985 -7.026529000000018)
+    (end -1.849119999999985 -5.515229000000012)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_poly
+    (pts
+      (xy -5.519991999999988 -7.314476600000013)
+      (xy 5.519992000000002 -7.314476600000013)
+      (xy 5.519992000000002 3.245625199999999)
+      (xy -5.519991999999988 3.245625199999999)
+      (xy -5.519991999999988 -7.314476600000013)
+    )
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+    (uuid 3f34dc30-47ad-9db0-5026-5f30589f20b0)
+  )
+  (pad "1" thru_hole rect
+    (at -3.809999999999995 2.0956270000000004 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 59018344-4e57-7c9c-0a4f-838462f683a4)
+  )
+  (pad "2" thru_hole oval
+    (at -2.539999999999992 -2.0956270000000004 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 445ef8c0-77da-0b01-3413-0ec20fb3ed7d)
+  )
+  (pad "3" thru_hole oval
+    (at -1.269999999999996 2.095373000000002 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 6ff63ea0-3b8d-c2bf-0725-46de2d433503)
+  )
+  (pad "4" thru_hole oval
+    (at 7.105427357601002e-15 -2.0956270000000004 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 67eabc66-16c6-1cc6-3a5e-82da747cdd86)
+  )
+  (pad "5" thru_hole oval
+    (at 1.2700000000000031 2.095373000000002 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 41592960-0cf0-ad7f-2777-ce625be04a43)
+  )
+  (pad "6" thru_hole oval
+    (at 2.5400000000000063 -2.0956270000000004 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 12c587e0-3101-745f-74c8-709e47709323)
+  )
+  (pad "7" thru_hole oval
+    (at 3.8100000000000023 2.095373000000002 0)
+    (size 1.7999964 1.7999964)
+    (drill oval 1.1051032 1.1000232)
+    (layers *.Cu *.Mask)
+    (uuid 3a173bc0-05ae-bfdf-2eb9-bc02632237e3)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C138712.step"
+    (offset
+      (xyz 0.42499909999999375 2.919986400000001 15.3189906)
+    )
+    (rotate
+      (xyz 0 0 0)
+    )
+  )
+)

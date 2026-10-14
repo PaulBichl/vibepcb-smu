@@ -1,0 +1,131 @@
+(footprint "PZ254V-11-05P"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 30b70f80-0393-4621-2990-833e56b44c9d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "PZ254V-11-05P"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 696a48c0-7b4e-985f-6007-797e44c05a9d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 4e182140-20f4-57e1-0c2f-717e39533add)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 437ad1a0-2fdc-1fdf-5ccc-eea2168a02dd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C492404"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 21d1e3be-7bc6-1a22-195e-18024909ea1e)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "PZ254V-11-05P"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 5eb46a80-70c8-b67f-4045-d77e0fc2f87d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "J6"
+    (at 0 -2.539999999999999 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.7 0.7)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_rect
+    (start -6.85 -1.77)
+    (end 6.85 1.77)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" thru_hole rect
+    (at -5.079999999999998 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 238a1c60-6a0e-bf7f-4f6c-9d6208e7fa43)
+  )
+  (pad "2" thru_hole circle
+    (at -2.539999999999999 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 65c4b520-53b6-a7c1-0d32-04a239529e7d)
+  )
+  (pad "3" thru_hole circle
+    (at 0 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 6caace64-2ae5-339c-3d8a-ca645a05379c)
+  )
+  (pad "4" thru_hole circle
+    (at 2.539999999999999 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 37d5cebc-1d05-2e44-71e0-2b443944d7bc)
+  )
+  (pad "5" thru_hole circle
+    (at 5.08 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 2b3345e0-5424-ffe1-2c82-ba5e52d58b63)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/pinrow5_p2.54_nopinlabels.step")
+)

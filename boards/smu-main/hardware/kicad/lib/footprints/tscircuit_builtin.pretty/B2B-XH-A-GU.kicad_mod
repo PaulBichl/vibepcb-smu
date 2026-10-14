@@ -1,0 +1,137 @@
+(footprint "B2B-XH-A-GU"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 193b1240-13e8-b71f-410c-807e6e3049dd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "B2B-XH-A-GU"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 283d7c80-4384-9b61-5ecb-ba427a12d923)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 369c2400-0978-5aa1-23ab-6ebe50cf381d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 7a383420-1270-da61-60e6-171e2bc2f763)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C265283"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 52397ec6-102e-835a-7296-857a2b017866)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "B2B-XH-A-GU"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 750fc6c0-5a6d-5a3f-29ea-7b3e069863c3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text user "pin1"
+    (at 1.2700000000000031 1.5 180)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.56 0.56)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text user "pin2"
+    (at -1.2700000000000031 1.5 180)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.56 0.56)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "J4"
+    (at 0 2.539999999999999 180)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.7 0.7)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_rect
+    (start -3.04 -1.77)
+    (end 3.04 1.77)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" thru_hole rect
+    (at 1.2700000000000031 0 0)
+    (size 1.8 1.8)
+    (drill 1.2)
+    (layers *.Cu *.Mask)
+    (uuid 10cf5b60-5753-fe7f-6227-5e621ba2bb43)
+  )
+  (pad "2" thru_hole circle
+    (at -1.2700000000000031 0 0)
+    (size 1.8 1.8)
+    (drill 1.2)
+    (layers *.Cu *.Mask)
+    (uuid 4d287aaa-3ce7-4636-3908-f8ea5106c7f6)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C265283.step"
+    (offset
+      (xyz 0 0.5249926000000187 -0.09999300000000044)
+    )
+    (rotate
+      (xyz 0 0 0)
+    )
+  )
+)

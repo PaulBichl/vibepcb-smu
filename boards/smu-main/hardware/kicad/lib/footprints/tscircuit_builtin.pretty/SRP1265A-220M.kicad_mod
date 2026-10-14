@@ -1,0 +1,115 @@
+(footprint "SRP1265A-220M"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 263d4040-5361-099f-7f7b-2d02525763a3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "SRP1265A-220M"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 34829400-193b-751f-020b-a9c21d52c8a3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 08dc2e80-35ff-f7df-6323-c13e6fb87563)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 3f3d87a0-4d6b-86e1-25eb-6a9e66bda3e3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C2041465"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 471c0cb2-567b-f12e-0bec-10f26e541312)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "SRP1265A-220M"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 29a508c0-06dd-d641-3760-b54267e39443)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "L2"
+    (at 0 -3.299999999999997 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.6000000000000001 0.6000000000000001)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_rect
+    (start -7.75005 -6.5)
+    (end 7.75005 6.5)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -5.750050000000002 0 0)
+    (size 3.5 5)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 148e2000-3d66-2abf-70a5-8a821eb13fc3)
+  )
+  (pad "2" smd rect
+    (at 5.750050000000002 0 0)
+    (size 3.5 5)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 49e64048-4521-a118-2bd6-7d88633163d8)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C2041465.step"
+    (offset
+      (xyz 0.000012699999956566899 -0.000012699999956566899 0)
+    )
+    (rotate
+      (xyz 0 0 0)
+    )
+  )
+)

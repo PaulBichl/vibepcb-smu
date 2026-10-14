@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "head": {
+    "generator": "circuit-json-to-kicad",
+    "generator_version": "0.0.1",
+    "project_name": "smu-main",
+    "created": "2026-10-14T18:49:23.876Z",
+    "modified": "2026-10-14T18:49:23.876Z"
+  },
+  "meta": {
+    "version": 1
+  },
+  "text_variables": {},
+  "libraries": {
+    "pinned_symbol_libs": [],
+    "pinned_footprint_libs": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "meta": {
+      "version": 0
+    }
+  },
+  "erc": {
+    "meta": {
+      "version": 0
+    },
+    "erc_exclusions": []
+  },
+  "net_settings": {
+    "meta": {
+      "version": 1
+    },
+    "last_net_id": 0,
+    "classes": [
+      {
+        "name": "Default",
+        "track_width": 0.15,
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "clearance": 0.1
+      }
+    ]
+  },
+  "pcbnew": {
+    "page_layout_descr_file": "",
+    "last_paths": {}
+  },
+  "schematic": {
+    "meta": {
+      "version": 1
+    },
+    "page_layout_descr_file": "",
+    "last_opened_files": [
+      "smu-main.kicad_sch"
+    ]
+  },
+  "board": {
+    "meta": {
+      "version": 1
+    },
+    "design_settings": {
+      "rules": {
+        "min_via_annular_width": 0.1,
+        "min_hole_clearance": 0.1,
+        "min_via_diameter": 0.5,
+        "min_track_width": 0.15,
+        "min_through_hole_diameter": 0.3
+      },
+      "rule_severities": {
+        "track_dangling": "error",
+        "via_dangling": "error",
+        "track_angle": "error"
+      }
+    },
+    "last_opened_board": "smu-main.kicad_pcb"
+  },
+  "sheets": [
+    [
+      "d80e7041-8d6d-48b9-919b-e6bd0a01d3cf",
+      "Root"
+    ]
+  ]
+}

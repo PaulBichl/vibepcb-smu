@@ -14,6 +14,24 @@ The boards are joined by a 10-way ribbon (main J5 <-> front J1). The output term
 HI, S+, S-, LO) is wired to front-panel binding posts; the OPA548 (TO-220-7) bolts to a heatsink
 on the rear panel (with a fan on J4).
 
+## Look at it
+
+![main board, top](boards/smu-main/hardware/smu-main-top.png)
+![display board, top](boards/smu-front/hardware/smu-front-top.png)
+
+| | Main board | Display board |
+|---|---|---|
+| Schematic | [PDF](boards/smu-main/hardware/smu-main-schematic.pdf) | [PDF](boards/smu-front/hardware/smu-front-schematic.pdf) |
+| Layout | [PDF, one page per copper layer](boards/smu-main/hardware/smu-main-layout.pdf), [front](boards/smu-main/hardware/smu-main-layout-front.png), [back](boards/smu-main/hardware/smu-main-layout-back.png) | [PDF](boards/smu-front/hardware/smu-front-layout.pdf), [front](boards/smu-front/hardware/smu-front-layout-front.png), [back](boards/smu-front/hardware/smu-front-layout-back.png) |
+| 3D | [top](boards/smu-main/hardware/smu-main-top.png), [bottom](boards/smu-main/hardware/smu-main-bottom.png) | [top](boards/smu-front/hardware/smu-front-top.png), [bottom](boards/smu-front/hardware/smu-front-bottom.png) |
+| BOM (LCSC / MPN) | [CSV](boards/smu-main/hardware/smu-main-bom.csv) | [CSV](boards/smu-front/hardware/smu-front-bom.csv) |
+| KiCad project | [kicad/](boards/smu-main/hardware/kicad) | [kicad/](boards/smu-front/hardware/kicad) |
+
+Both boards pass KiCad's DRC and ERC with 0 errors. The KiCad projects open as they are (3D
+models left out: they are tens of MB; `pcb fix` downloads them). Gerbers / pick-and-place are
+not in the repo: open the project in KiCad and plot them, or build the boards (below) and run
+`hatch run pcb fab <board>` for Gerbers, drill, BOM, CPL and a JLCPCB upload set.
+
 ## Setup / build
 
 Same as the [CO2 example](https://github.com/PaulBichl/vibepcb-example-co2-monitor): clone

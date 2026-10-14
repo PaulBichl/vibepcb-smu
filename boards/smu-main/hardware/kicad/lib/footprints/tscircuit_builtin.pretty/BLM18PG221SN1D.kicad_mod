@@ -1,0 +1,135 @@
+(footprint "BLM18PG221SN1D"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 1cd6642a-5a7e-fe76-2e2b-9eea4929c3b6)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "BLM18PG221SN1D"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6f67dfde-42fb-6302-0aa1-5a1e583e173e)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 477c31aa-412e-6bb6-3626-f6ea5283a676)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 07c78488-1040-4608-18b9-07882131c908)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C80165"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6a017700-5499-b8ff-3f31-fafe29ca3cfd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "BLM18PG221SN1D"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 4b2f77d6-6b56-76d6-7482-8a2a545b8b2a)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "FB1"
+    (at 0 -1.375 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.4 0.4)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start 0.8250000000000028 -0.875)
+    (end -1.4249999999999972 -0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.4249999999999972 -0.875)
+    (end -1.4249999999999972 0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.4249999999999972 0.875)
+    (end 0.8250000000000028 0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_rect
+    (start -1.48 -0.73)
+    (end 1.48 0.73)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -0.8250000000000028 0 0)
+    (size 0.8 0.95)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 2a641872-3dcf-0b32-5139-fdf264a4f0b2)
+  )
+  (pad "2" smd rect
+    (at 0.8250000000000028 0 0)
+    (size 0.8 0.95)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 64385560-1244-0aa1-3fb0-401e6e5b7523)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/0603.step")
+)

@@ -1,0 +1,115 @@
+(footprint "SMBJ36CA"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 0b9e10c6-6bb7-51da-1cf3-4b865a62171a)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "SMBJ36CA"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 53348e86-0597-d166-4804-ebba6a5e5726)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 58b4850e-2ff6-1852-475f-4a4e414b5312)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6ec9cea4-7742-9024-7fbb-51a477cbecdc)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C114002"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 3a7a3d40-2512-7f3f-0faa-c13e05bcfcc3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "SMBJ36CA"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 2e0563ba-4e2c-62ba-6e53-61ba71859f46)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "D43"
+    (at 0 -2 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.6000000000000001 0.6000000000000001)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_rect
+    (start -3.66465 -2.05)
+    (end 3.66465 2.05)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -2.390900000000002 0 0)
+    (size 2.0475 2.4)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 004aebc6-1320-06fa-268a-f9ba39f5ec7a)
+  )
+  (pad "2" smd rect
+    (at 2.390900000000002 0 0)
+    (size 2.0475 2.4)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 22f899a0-74ec-e45f-391e-d0e218d579dd)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C114002.step"
+    (offset
+      (xyz 0 0 0.1)
+    )
+    (rotate
+      (xyz 0 0 0)
+    )
+  )
+)

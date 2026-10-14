@@ -1,0 +1,11 @@
+(version 1)
+(rule "footprint-internal hole clearance"
+  (condition "A.Parent == B.Parent")
+  (constraint hole_clearance (min 0.15mm)))
+(rule "zone pads: one thermal spoke is enough"
+  (constraint min_resolved_spokes 1))
+(rule "router clearance: float tolerance"
+  (condition "A.NetClass == 'Default' && B.NetClass == 'Default'")
+  (constraint clearance (min 0.095mm)))
+(rule "no acute track angles"
+  (constraint track_angle (min 89)))

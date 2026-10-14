@@ -1,0 +1,126 @@
+(footprint "HoJLR2512-2W-470mR-1_-75ppm"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 42447540-3112-7c3f-5b96-924217c05f3d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "HoJLR2512-2W-470mR-1_-75ppm"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 29055000-3cf5-96c1-5d0f-827e08eb6443)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 29309480-4a26-5cff-4282-b18230d43ffd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 1c21aa60-1582-3bff-0ee2-cd9e08435f3d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C2924582"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 42a6d74e-25c9-26b2-71c6-db4e0956dd4e)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "HoJLR2512-2W-470mR-1%-75ppm"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 5e355340-42ee-345f-27a7-157e0c5ff69d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "R118"
+    (at 0 -2.5749999999999993 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.4 0.4)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start -2.1770640000000014 -1.7100000000000009)
+    (end 2.1770640000000014 -1.7100000000000009)
+    (stroke
+      (width 0.12)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -2.1770640000000014 1.7100000000000009)
+    (end 2.1770640000000014 1.7100000000000009)
+    (stroke
+      (width 0.12)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_rect
+    (start -3.83 -1.93)
+    (end 3.83 1.93)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -2.9624999999999986 0 0)
+    (size 1.225 3.35)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 3d33c8c0-1cbf-9c61-76b3-01822f59995d)
+  )
+  (pad "2" smd rect
+    (at 2.9624999999999986 0 0)
+    (size 1.225 3.35)
+    (layers F.Cu F.Paste F.Mask)
+    (uuid 26f4fb50-138a-0890-001f-15d0134bdcf0)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/res2512.step")
+)

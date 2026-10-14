@@ -1,0 +1,1124 @@
+(footprint "DG301-5_0-04P-14-1000A_H"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 7282ec60-6059-4a41-3335-80e20611b783)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "DG301-5_0-04P-14-1000A_H"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 7858e9a0-5d11-cabf-41ca-abde26838cfd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 5521daa0-7dba-5c01-5096-92a22372c943)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 5911b700-3397-5781-3fbf-99fe4ce97483)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C3037697"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 73c0cff8-29d7-2de8-3890-d438650729a8)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "DG301-5.0-04P-14-1000A(H)"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 7fc28b20-4f3f-ac1f-1ebc-cd1e11c611e3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "J3"
+    (at -0.29908500000000515 -5.495800000000003 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start -8.50651080000003 3.0479999999999663)
+    (end -8.50651080000003 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -8.50651080000003 1.63004499999996)
+    (end -6.489953999999926 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -6.489953999999926 1.63004499999996)
+    (end -6.489953999999926 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 6.49343380000002 1.6299687999998795)
+    (end 8.509990600000009 1.6299687999998795)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 6.49343380000002 3.0479999999999663)
+    (end 6.49343380000002 1.6299687999998795)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 6.49343380000002 1.6299687999998795)
+    (end 8.509990600000009 1.6299687999998795)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 8.509990600000009 1.6299687999998795)
+    (end 8.509990600000009 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 1.4934437999999943 3.0479999999999663)
+    (end 1.4934437999999943 1.6299687999998795)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 1.4934437999999943 1.6299687999998795)
+    (end 3.5100005999999837 1.6299687999998795)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 3.5100005999999837 1.6299687999998795)
+    (end 3.5100005999999837 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -3.5064953999999773 3.0480507999999062)
+    (end -3.5064953999999773 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -3.5064953999999773 1.63004499999996)
+    (end -1.489938599999988 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.489938599999988 1.63004499999996)
+    (end -1.489938599999988 3.0480507999999062)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -9.992995000000093 -3.5865054000001138)
+    (end -10.40952960000007 -3.840505400000019)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -10.40952960000007 -3.840505400000019)
+    (end -10.409961399999958 -2.9600144000001265)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -10.409961399999958 -2.9600144000001265)
+    (end -9.992995000000093 -3.1521146000001536)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -7.899984199999977 2.350007999999967)
+    (end -7.299985399999883 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.299985399999883 2.350007999999967)
+    (end -7.299985399999883 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.299985399999883 2.350007999999967)
+    (end -7.59998479999993 2.0500086000000337)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.59998479999993 2.0500086000000337)
+    (end -7.899984199999977 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.6999846000001355 2.350007999999967)
+    (end -7.6999846000001355 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.6999846000001355 2.850006999999856)
+    (end -7.499984999999953 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.499984999999953 2.850006999999856)
+    (end -7.499984999999953 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -7.499984999999953 2.350007999999967)
+    (end -7.6999846000001355 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.633510799999982 3.0479999999999663)
+    (end -8.633510799999982 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.633510799999982 1.63004499999996)
+    (end -8.596313361210633 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.596313361210633 1.5402424387892424)
+    (end -8.50651080000003 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.50651080000003 1.5030449999998936)
+    (end -6.48995400000004 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.48995400000004 1.5030449999998936)
+    (end -6.400151438789209 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.400151438789209 1.5402424387892424)
+    (end -6.362953999999974 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.362953999999974 1.63004499999996)
+    (end -6.362953999999974 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.362953999999974 3.0479999999999663)
+    (end -6.48995400000004 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.48995400000004 2.9209999999999)
+    (end -6.616953999999993 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.616953999999993 3.0479999999999663)
+    (end -6.616953999999993 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -6.616953999999993 1.7570449999999127)
+    (end -8.379510799999963 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.379510799999963 1.7570449999999127)
+    (end -8.379510799999963 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.379510799999963 3.0479999999999663)
+    (end -8.50651080000003 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -8.50651080000003 2.9209999999999)
+    (end -8.633510799999982 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.6335208000000705 3.0479999999999663)
+    (end -3.6335208000000705 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.6335208000000705 1.63004499999996)
+    (end -3.5963233612107217 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.5963233612107217 1.5402424387892424)
+    (end -3.506520800000004 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.506520800000004 1.5030449999998936)
+    (end -1.489963999999901 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.489963999999901 1.5030449999998936)
+    (end -1.4001614387891834 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.4001614387891834 1.5402424387892424)
+    (end -1.3629639999998346 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.3629639999998346 1.63004499999996)
+    (end -1.3629639999998346 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.3629639999998346 3.0479999999999663)
+    (end -1.489963999999901 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.489963999999901 2.9209999999999)
+    (end -1.6169639999998537 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.6169639999998537 3.0479999999999663)
+    (end -1.6169639999998537 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -1.6169639999998537 1.7570449999999127)
+    (end -3.3795208000000514 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.3795208000000514 1.7570449999999127)
+    (end -3.3795208000000514 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.3795208000000514 3.0479999999999663)
+    (end -3.506520800000004 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -3.506520800000004 2.9209999999999)
+    (end -3.6335208000000705 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.6999946000001103 2.350007999999967)
+    (end -2.6999946000001103 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.6999946000001103 2.850006999999856)
+    (end -2.499995000000041 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.499995000000041 2.850006999999856)
+    (end -2.499995000000041 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.499995000000041 2.350007999999967)
+    (end -2.6999946000001103 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.899994200000066 2.350007999999967)
+    (end -2.299995399999972 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.299995399999972 2.350007999999967)
+    (end -2.299995399999972 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.299995399999972 2.350007999999967)
+    (end -2.599994800000019 2.0500086000000337)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -2.599994800000019 2.0500086000000337)
+    (end -2.899994200000066 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.3664691999999548 3.0479999999999663)
+    (end 1.3664691999999548 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.3664691999999548 1.63004499999996)
+    (end 1.4036666387891898 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.4036666387891898 1.5402424387892424)
+    (end 1.4934691999999075 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.4934691999999075 1.5030449999998936)
+    (end 3.510026000000124 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.510026000000124 1.5030449999998936)
+    (end 3.599828561210842 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.599828561210842 1.5402424387892424)
+    (end 3.637026000000077 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.637026000000077 1.63004499999996)
+    (end 3.637026000000077 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.637026000000077 3.0479999999999663)
+    (end 3.510026000000124 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.510026000000124 2.9209999999999)
+    (end 3.3830260000001715 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.3830260000001715 3.0479999999999663)
+    (end 3.3830260000001715 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 3.3830260000001715 1.7570449999999127)
+    (end 1.6204691999998602 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.6204691999998602 1.7570449999999127)
+    (end 1.6204691999998602 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.6204691999998602 3.0479999999999663)
+    (end 1.4934691999999075 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 1.4934691999999075 2.9209999999999)
+    (end 1.3664691999999548 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.2999954000001424 2.350007999999967)
+    (end 2.2999954000001424 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.2999954000001424 2.850006999999856)
+    (end 2.4999949999998705 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.4999949999998705 2.850006999999856)
+    (end 2.4999949999998705 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.4999949999998705 2.350007999999967)
+    (end 2.2999954000001424 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.0999957999999594 2.350007999999967)
+    (end 2.6999946000000534 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.6999946000000534 2.350007999999967)
+    (end 2.6999946000000534 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.6999946000000534 2.350007999999967)
+    (end 2.3999951999998927 2.0500086000000337)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 2.3999951999998927 2.0500086000000337)
+    (end 2.0999957999999594 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.36645919999998 3.0479999999999663)
+    (end 6.36645919999998 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.36645919999998 1.63004499999996)
+    (end 6.403656638789215 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.403656638789215 1.5402424387892424)
+    (end 6.493459199999933 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.493459199999933 1.5030449999998936)
+    (end 8.51001600000015 1.5030449999998936)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.51001600000015 1.5030449999998936)
+    (end 8.59981856121064 1.5402424387892424)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.59981856121064 1.5402424387892424)
+    (end 8.637016000000102 1.63004499999996)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.637016000000102 1.63004499999996)
+    (end 8.637016000000102 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.637016000000102 3.0479999999999663)
+    (end 8.51001600000015 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.51001600000015 2.9209999999999)
+    (end 8.38301599999997 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.38301599999997 3.0479999999999663)
+    (end 8.38301599999997 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 8.38301599999997 1.7570449999999127)
+    (end 6.620459199999885 1.7570449999999127)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.620459199999885 1.7570449999999127)
+    (end 6.620459199999885 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.620459199999885 3.0479999999999663)
+    (end 6.493459199999933 2.9209999999999)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 6.493459199999933 2.9209999999999)
+    (end 6.36645919999998 3.0479999999999663)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.29998539999994 2.350007999999967)
+    (end 7.29998539999994 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.29998539999994 2.850006999999856)
+    (end 7.499984999999896 2.850006999999856)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.499984999999896 2.850006999999856)
+    (end 7.499984999999896 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.499984999999896 2.350007999999967)
+    (end 7.29998539999994 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.099985799999985 2.350007999999967)
+    (end 7.699984600000079 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.699984600000079 2.350007999999967)
+    (end 7.699984600000079 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.699984600000079 2.350007999999967)
+    (end 7.399985200000145 2.0500086000000337)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 7.399985200000145 2.0500086000000337)
+    (end 7.099985799999985 2.350007999999967)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -10.03998500000003 -3.6830000000000283)
+    (end -10.547984999999954 -3.8100000000000946)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -10.547984999999954 -3.8100000000000946)
+    (end -10.547984999999954 -2.7940000000000182)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -10.547984999999954 -2.7940000000000182)
+    (end -10.03998500000003 -3.0480000000000373)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -10.03998500000003 -3.0480000000000373)
+    (end -10.03998500000003 -3.6830000000000283)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_poly
+    (pts
+      (xy -10.8549826 -4.749990999999945)
+      (xy 10.254983799999962 -4.749990999999945)
+      (xy 10.254983799999962 3.3499937999999574)
+      (xy -10.8549826 3.3499937999999574)
+      (xy -10.8549826 -4.749990999999945)
+    )
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+    (uuid 36d4422c-3f4d-03ac-47c5-c52c503e86ac)
+  )
+  (fp_poly
+    (pts
+      (xy -9.999853000000009 3.1000700000000023)
+      (xy 10.000106999999986 3.1000700000000023)
+      (xy 10.000106999999986 -4.499864000000002)
+      (xy -9.999853000000009 -4.499864000000002)
+    )
+    (layer F.SilkS)
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (fill no)
+    (uuid 5227f920-7f4b-c27f-5390-7422266caac3)
+  )
+  (pad "3" thru_hole circle
+    (at 2.4999949999999984 0 0)
+    (size 1.999996 1.999996)
+    (drill 1.1999976)
+    (layers *.Cu *.Mask)
+    (uuid 0ae325a0-3ba1-7d7f-7dd9-df6237553c43)
+  )
+  (pad "2" thru_hole circle
+    (at -2.4999950000000055 0 0)
+    (size 1.999996 1.999996)
+    (drill 1.1999976)
+    (layers *.Cu *.Mask)
+    (uuid 426671cc-3389-cd54-5685-f38c1f6a4b94)
+  )
+  (pad "1" thru_hole circle
+    (at -7.4999850000000094 0 0)
+    (size 1.999996 1.999996)
+    (drill 1.1999976)
+    (layers *.Cu *.Mask)
+    (uuid 4eaa4db8-2745-f168-62c9-cf7813266fa8)
+  )
+  (pad "4" thru_hole circle
+    (at 7.499984999999995 0 0)
+    (size 1.999996 1.999996)
+    (drill 1.1999976)
+    (layers *.Cu *.Mask)
+    (uuid 0519cdca-4fc1-2f36-5b63-d3ca0688d6ca)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C3037697.step"
+    (offset
+      (xyz -25.005125399999955 -3.2493233999998927 6.7494334)
+    )
+    (rotate
+      (xyz 0 0 0)
+    )
+  )
+)

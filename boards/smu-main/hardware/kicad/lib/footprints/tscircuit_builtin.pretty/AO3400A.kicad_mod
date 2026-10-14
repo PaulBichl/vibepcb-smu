@@ -1,0 +1,160 @@
+(footprint "AO3400A"
+  (layer F.Cu)
+  (property "Reference" "REF**"
+    (at 0 -3 0)
+    (layer F.SilkS)
+    (hide yes)
+    (uuid 50d23ce0-2683-25c0-6227-77a0152deb00)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "AO3400A"
+    (at 0 3 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 35d2e6ec-17c9-d634-6566-93544cfcaf8c)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 138058f4-752a-446c-022b-1e34798080d4)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 4c94ab02-441b-e982-3ba3-2802332a6682)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Supplier Part Number" "C20917"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 2e87ec60-43ef-aa61-5957-68626ebf2663)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "MPN" "AO3400A"
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 731f19a0-52f8-1aa0-32d1-1ba012aa1ca0)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text reference "Q43"
+    (at 0 2.499999999999999 180)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start 0.7000000000000028 1.6499999999999995)
+    (end -1 1.6499999999999995)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1 1.6499999999999995)
+    (end -1 0.8249999999999993)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start 0.7000000000000028 -1.6500000000000012)
+    (end -1 -1.6500000000000012)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1 -1.6500000000000012)
+    (end -1 -0.8250000000000002)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_rect
+    (start -1.75 -1.7400000000000009)
+    (end 1.75 1.739999999999999)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd roundrect
+    (at 1 0.9499999999999993 180)
+    (size 1 0.65)
+    (layers F.Cu F.Paste F.Mask)
+    (roundrect_rratio 0.125)
+    (uuid 22ad9c70-0f42-a9b0-0428-491017933bd0)
+  )
+  (pad "2" smd roundrect
+    (at 1 -0.9500000000000002 180)
+    (size 1 0.65)
+    (layers F.Cu F.Paste F.Mask)
+    (roundrect_rratio 0.125)
+    (uuid 52412020-07b2-4501-61a5-aa224466f0bd)
+  )
+  (pad "3" smd roundrect
+    (at -1 -8.881784197001252e-16 180)
+    (size 1 0.65)
+    (layers F.Cu F.Paste F.Mask)
+    (roundrect_rratio 0.125)
+    (uuid 55f92760-0f74-8441-3710-1ede7d94c1fd)
+  )
+  (model "${KIPRJMOD}/3dmodels/tscircuit_builtin.3dshapes/C20917.step"
+    (offset
+      (xyz 0.000012700000070253735 -0.0000126999999565669 -0.050795)
+    )
+    (rotate
+      (xyz 0 0 -180)
+    )
+  )
+)
