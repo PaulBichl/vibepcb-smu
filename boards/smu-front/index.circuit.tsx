@@ -7,7 +7,7 @@
 //   digits, GRID9 = status LEDs (cathodes), SEG1-8 = a..g, dp (anodes). No series resistors:
 //   the TM1640 regulates the segment current (brightness set by firmware).
 // - The TM1640 runs on 5 V (VIH 0.7 * VDD); SN74LV1T125 buffers (5 V supply, 3.3 V-compatible
-//   inputs) translate DIN / SCLK from the 3.3 V ESP32.
+//   inputs) translate DIN / SCLK from the 3.3 V STM32.
 // - Buttons pull to GND; pull-ups + debounce caps are on the main board.
 import { A2541WV_2x5P, KT_0603G, KT_0603R, SN74LV1T125DBVR, SR420561N, TM1640_TA2103_, TS_1187A_B_A_B } from "./imports"
 
@@ -29,9 +29,9 @@ export default () => (
   <board width="150mm" height="45mm" minTraceWidth="0.15mm" minTraceToPadEdgeClearance="0.2mm"
     minBoardEdgeClearance="0.5mm" minViaHoleDiameter="0.3mm" minViaPadDiameter="0.6mm"
     minViaEdgeToPadEdgeClearance="0.2mm" autorouterEffortLevel="10x">
-    {/* displays: U1 = voltage (left), U2 = current */}
-    <SR420561N name="U1" pcbX={-40} pcbY={5} pcbRotation={90} />
-    <SR420561N name="U2" pcbX={18.5} pcbY={5} pcbRotation={90} />
+    {/* displays: U1 = voltage (left), U2 = current; footprint unrotated = pin rows along the long edges, pin 1 bottom left (digits upright) */}
+    <SR420561N name="U1" pcbX={-40} pcbY={5} />
+    <SR420561N name="U2" pcbX={18.5} pcbY={5} />
     <silkscreentext text="VOLTAGE  [V]" pcbX={-40} pcbY={18.5} fontSize="1.5mm" />
     <silkscreentext text="CURRENT  [A]" pcbX={18} pcbY={18.5} fontSize="1.5mm" />
 

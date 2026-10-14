@@ -6,7 +6,7 @@
 //
 // Architecture (see boards/smu-main/sim for the loop simulations, README.md for the numbers)
 // - Power: USB-C PD sink (STUSB4500, NVM set to request 20 V) -> P-FET -> VIN 9..20 V.
-//   5 V buck (LMR51635) -> 3.3 V digital (AP2112K), 3.3 V analog (ME6211), -4.35 V (LM27761).
+//   5 V buck (LMR51635Y, 1.1 MHz: the 400 kHz X variant is out of stock at JLCPCB) -> 3.3 V digital (AP2112K), 3.3 V analog (ME6211), -4.35 V (LM27761).
 // - Tracking rails for the power op amp (keeps its dissipation low and the span <= 60 V):
 //   V+ = SEPIC (LM5156 + 100 V FET), 4.5..34 V; V- = inverting buck-boost (LMR51635, IC ground
 //   on V-), -5..-34 V. Firmware sets both by PWM (V+ = Vout_max + 4 V, V- = Vout_min - 4 V);
@@ -43,10 +43,10 @@ export default () => (
     minTraceToPadEdgeClearance="0.1mm" // = KiCad clearance; JLCPCB 4-layer allows 0.09 mm, the router spaces tracks ~0.115 mm
     minBoardEdgeClearance="0.5mm"
     minViaHoleDiameter="0.3mm"
-    minViaPadDiameter="0.6mm"
+    minViaPadDiameter="0.5mm" // 0.3/0.5 mm vias: JLCPCB standard; 0.6 mm left no room between the STM32 fan-out pins
     minViaEdgeToPadEdgeClearance="0.2mm"
     autorouterEffortLevel="10x"
-    schematicDisabled // TEMP: placement iteration
+    schematicDisabled // KiCad schematic generated from the netlist by VibePCB (boxes + net labels)
   >
     {/* ============================ USB-C PD input ============================ */}
     <TYPE_C_16PIN_2MD_073_ name="J1" pcbX={-70} pcbY={44.8} pcbRotation={180} />
@@ -243,6 +243,7 @@ export default () => (
       <R name="R51" pcbX={-36} pcbY={46.5} v="10k" />
       <TS_1187A_B_A_B name="SW2" pcbX={-44} pcbY={21} />
       <pinheader name="J6" pinCount={5} pitch="2.54mm" pcbX={-18} pcbY={47.5}
+        supplierPartNumbers={{ jlcpcb: ["C492404"] }} manufacturerPartNumber="PZ254V-11-05P"
         pinLabels={["V3V3", "SWDIO", "SWCLK", "NRST", "GND"]} />
       <R name="R52" pcbX={-39.5} pcbY={48.1} v="4.7k" />
       <R name="R53" pcbX={-39.5} pcbY={46.6} v="4.7k" />
@@ -577,7 +578,7 @@ export default () => (
     <hole name="H2" diameter="3.2mm" pcbX={76} pcbY={-46} />
     <hole name="H3" diameter="3.2mm" pcbX={-76} pcbY={30} />
     <hole name="H4" diameter="3.2mm" pcbX={76} pcbY={0} />
-    <silkscreentext text="VibePCB SMU v1  +-30V +-1A" pcbX={20} pcbY={-46} fontSize="1.5mm" />
+    <silkscreentext text="VibePCB SMU v1  +-30V +-1A" pcbX={27} pcbY={-46} fontSize="1.5mm" />
     <silkscreentext text="HI   S+   S-   LO" pcbX={62} pcbY={-40} fontSize="1.2mm" />
 
     <copperpour connectsTo="net.GND" layer="top" clearance="0.3mm" boardEdgeMargin="0.5mm" />

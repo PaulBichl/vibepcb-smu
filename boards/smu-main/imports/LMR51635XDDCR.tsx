@@ -21,10 +21,10 @@ export const LMR51635XDDCR = (props: ChipProps<typeof pinLabels>) => {
       pinAttributes={pinAttributes}
       supplierPartNumbers={{
   "jlcpcb": [
-    "C42432812"
+    "C45262770"
   ]
 }}
-      manufacturerPartNumber="LMR51635XDDCR"
+      manufacturerPartNumber="LMR51635YDDCR"
       footprint="soic6_p0.95mm_w3.8mm_pl1.1mm_pin1location(rightside,bottom)"
       cadModel={{
         objUrl: "https://modelcdn.tscircuit.com/easyeda_models/assets/C42432812.obj?uuid=229b69761e2c45dba6a83d8866dec72d",
