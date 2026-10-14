@@ -14,26 +14,6 @@ export const OPA548T = (props: ChipProps<typeof pinLabels>) => {
   return (
     <chip
       pinLabels={pinLabels}
-      symbol={
-        <symbol>
-          <schematicpath points={[{"x":-0.4,"y":-0.4},{"x":0.4,"y":0},{"x":-0.4,"y":0.4},{"x":-0.4,"y":-0.4}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.32,"y":0.2},{"x":-0.2,"y":0.2}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.32,"y":-0.2},{"x":-0.2,"y":-0.2}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.26,"y":-0.14},{"x":-0.26,"y":-0.26}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":0,"y":0.4},{"x":0,"y":0.2}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":0,"y":-0.2},{"x":0,"y":-0.4}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.28,"y":0.34},{"x":-0.4,"y":0.6}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.28,"y":-0.34},{"x":-0.4,"y":-0.6}]} strokeColor="#880000" />
-          <port name="pin1" pinNumber={1} aliases={["VIN_POS"]} direction="left" schX={-0.8} schY={-0.2} schStemLength={0.4} />
-          <port name="pin2" pinNumber={2} aliases={["VIN_NEG"]} direction="left" schX={-0.8} schY={0.2} schStemLength={0.4} />
-          <port name="pin3" pinNumber={3} aliases={["ILIM"]} direction="left" schX={-0.8} schY={-0.6} schStemLength={0.4} />
-          <port name="pin4" pinNumber={4} aliases={["V_NEG"]} direction="down" schX={0} schY={-0.8} schStemLength={0.4} />
-          <port name="pin5" pinNumber={5} aliases={["V_POS"]} direction="up" schX={0} schY={0.8} schStemLength={0.4} />
-          <port name="pin6" pinNumber={6} aliases={["VO"]} direction="right" schX={0.8} schY={0} schStemLength={0.4} />
-          <port name="pin7" pinNumber={7} aliases={["ES"]} direction="left" schX={-0.8} schY={0.6} schStemLength={0.4} />
-          <schematictext schX={0} schY={1.03} text="{NAME}" fontSize={0.2} anchor="bottom_center" />
-        </symbol>
-      }
       supplierPartNumbers={{
   "jlcpcb": [
     "C138712"

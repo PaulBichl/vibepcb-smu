@@ -15,42 +15,6 @@ export const HFD4_5 = (props: ChipProps<typeof pinLabels>) => {
   return (
     <chip
       pinLabels={pinLabels}
-      symbol={
-        <symbol>
-          <schematicrect schX={0} schY={0} width={1.6} height={1.2} strokeWidth={0.02} color="#880000" />
-          <port name="pin1" pinNumber={1} aliases={["1"]} direction="down" schX={-0.6} schY={-1} schStemLength={0.4} />
-          <port name="pin4" pinNumber={4} aliases={["4"]} direction="down" schX={0.6} schY={-1} schStemLength={0.4} />
-          <port name="pin2" pinNumber={2} aliases={["2"]} direction="down" schX={-0.2} schY={-1} schStemLength={0.4} />
-          <port name="pin3" pinNumber={3} aliases={["3"]} direction="down" schX={0.2} schY={-1} schStemLength={0.4} />
-          <port name="pin6" pinNumber={6} aliases={["6"]} direction="up" schX={0.2} schY={1} schStemLength={0.4} />
-          <port name="pin7" pinNumber={7} aliases={["7"]} direction="up" schX={-0.2} schY={1} schStemLength={0.4} />
-          <port name="pin8" pinNumber={8} aliases={["8"]} direction="up" schX={-0.6} schY={1} schStemLength={0.4} />
-          <port name="pin5" pinNumber={5} aliases={["5"]} direction="up" schX={0.6} schY={1} schStemLength={0.4} />
-          <schematicpath points={[{"x":-0.6,"y":0.4},{"x":-0.6,"y":0.06}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.6,"y":-0.06},{"x":-0.6,"y":-0.4}]} strokeColor="#880000" />
-          <schematicpath svgPath="M -0.58 -0.4 A 0.02 0.02 0 1 1 -0.58 -0.40004" strokeColor="#880000" />
-          <schematicpath svgPath="M -0.58 0.4 A 0.02 0.02 0 1 1 -0.58 0.39996" strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.74,"y":-0.06},{"x":-0.74,"y":0.06},{"x":-0.5,"y":0.06},{"x":-0.5,"y":-0.06},{"x":-0.74,"y":-0.06}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.5,"y":0.06},{"x":-0.46,"y":0.06},{"x":-0.46,"y":-0.06},{"x":-0.5,"y":-0.06}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.2,"y":0.4},{"x":-0.2,"y":0.1},{"x":0,"y":0.1}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":0.2,"y":0.4},{"x":0.2,"y":0.24}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":0.3,"y":0.1},{"x":0.6,"y":0.1},{"x":0.6,"y":0.4}]} strokeColor="#880000" />
-          <schematicpath svgPath="M -0.18 0.4 A 0.02 0.02 0 1 1 -0.18 0.39996" strokeColor="#880000" />
-          <schematicpath svgPath="M 0.22 0.4 A 0.02 0.02 0 1 1 0.22 0.39996" strokeColor="#880000" />
-          <schematicpath svgPath="M 0.62 0.4 A 0.02 0.02 0 1 1 0.62 0.39996" strokeColor="#880000" />
-          <schematictext schX={-0.74} schY={0.3} text="-" fontSize={0.2} anchor="left" color="#880000" schRotation={0} />
-          <schematictext schX={-0.74} schY={-0.48} text="+" fontSize={0.2} anchor="left" color="#880000" schRotation={0} />
-          <schematicpath points={[{"x":0.2,"y":0.24},{"x":-0.06,"y":0.06}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":-0.2,"y":-0.4},{"x":-0.2,"y":-0.1},{"x":0,"y":-0.1}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":0.2,"y":-0.4},{"x":0.2,"y":-0.24}]} strokeColor="#880000" />
-          <schematicpath points={[{"x":0.3,"y":-0.1},{"x":0.6,"y":-0.1},{"x":0.6,"y":-0.4}]} strokeColor="#880000" />
-          <schematicpath svgPath="M -0.18 -0.4 A 0.02 0.02 0 1 1 -0.18 -0.40004" strokeColor="#880000" />
-          <schematicpath svgPath="M 0.22 -0.4 A 0.02 0.02 0 1 1 0.22 -0.40004" strokeColor="#880000" />
-          <schematicpath svgPath="M 0.62 -0.4 A 0.02 0.02 0 1 1 0.62 -0.40004" strokeColor="#880000" />
-          <schematicpath points={[{"x":0.2,"y":-0.24},{"x":-0.06,"y":-0.06}]} strokeColor="#880000" />
-          <schematictext schX={-0.004} schY={1.24} text="{NAME}" fontSize={0.2} anchor="bottom_center" />
-        </symbol>
-      }
       supplierPartNumbers={{
   "jlcpcb": [
     "C23510"

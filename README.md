@@ -7,8 +7,8 @@ voltage and current on two 4-digit 7-segment displays. Designed with
 
 | Board | Layers | Size | Content |
 |-------|--------|------|---------|
-| `boards/smu-main` | 4 (top+GND / GND / route+GND / bottom+GND) | 160 x 100 mm | USB-C PD input, rail converters, OPA548 output stage, control loop, 24-bit measurement, ESP32-S3 + W5500 |
-| `boards/smu-front` | 2 | 150 x 45 mm | 2x SR420561N displays, TM1640 driver, 6 status LEDs, OUTPUT / MODE buttons |
+| `boards/smu-main` | 4 (top+GND / GND / route+GND / bottom+GND) | 160 x 100 mm | USB-C PD input, rail converters, OPA548 output stage, control loop, 24-bit measurement, STM32G431 + W5500 |
+| `boards/smu-front` | 2 (both GND-poured) | 150 x 45 mm | 2x SR420561N displays, TM1640 driver, 6 status LEDs, OUTPUT / MODE buttons |
 
 The boards are joined by a 10-way ribbon (main J5 <-> front J1). The output terminal (main J3:
 HI, S+, S-, LO) is wired to front-panel binding posts; the OPA548 (TO-220-7) bolts to a heatsink
@@ -35,7 +35,7 @@ USB-C PD (STUSB4500, 20 V) -> P-FET -> VIN -+-> 5 V buck -> 3.3 V (digital), 3.3
 DAC8563 (VSET, ISET) -> summing node -> OPA548 -> relay -> HI ... DUT ... LO -> 0.1 R shunt -> GND
                           ^  ^  current-limit integrators (OPA2192) <- INA828 (-1 V/A)
                           |  +-- S+ (remote sense, 100 R to HI inside)
-ADS131M02: V = (S+ - S-)/31, I = INA828 output    ESP32-S3 <-> W5500 <-> RJ45, TM1640 front panel
+ADS131M02: V = (S+ - S-)/31, I = INA828 output    STM32G431 <-> W5500 <-> RJ45, TM1640 front panel
 ```
 
 ### Output stage
@@ -49,9 +49,9 @@ ADS131M02: V = (S+ - S-)/31, I = INA828 output    ESP32-S3 <-> W5500 <-> RJ45, T
   with +-ISET and pull the summing node through diodes. PI zero (12k * 47n) sits on the power
   stage pole (120k * 4.7n). Simulated: stable from a dead short to open circuit, with 10-100 uF
   loads, all four quadrants (`sim/`).
-- Fast protection: the OPA548's own current limit (ILIM pin, NPN mirror fed by a PWM-set PNP
-  current source, 15000 * I_pin) is programmed to ~1.1 * Ilim + 30 mA. It catches load steps in
-  microseconds; the precise analog limit takes over within ~2-7 ms.
+- Fast protection: the OPA548's own current limit, fixed at ~1.1 A by R109 (49.9k ILIM to V-,
+  I = 15000 * 4.75 V / (13.75k + R)). It catches load steps in microseconds; the precise analog
+  limit takes over within ~2-7 ms.
 - Output relay (HFD4/5, both poles in parallel), output TVS (SMBJ36CA), clamp diodes from the
   amplifier output to both rails, 1 uF across the terminals.
 
@@ -66,7 +66,7 @@ span within its 60 V rating:
   heatsink): plan for a firmware power limit (e.g. 25 W, more with the fan).
 - Hardware span clamp: a 51 V zener + 1k from V+ into the V- feedback node reduces |V-| when
   V+ - V- would exceed ~52 V, whatever the firmware does.
-- At reset (ESP32 pins high-Z): both rails at minimum (pull-up / pull-down on the PWM pins),
+- At reset (MCU pins high-Z): both rails at minimum (pull-up / pull-down on the PWM pins),
   OPA548 hardware current limit 0 A, OPA548 disabled (opto LED on), relay open.
 
 ### Measurement
@@ -76,22 +76,28 @@ ADS131M02 (24 bit, simultaneous sampling, internal 1.2 V reference, 8.192 MHz os
 - CH1: INA828 output, -1 V/A -> +-1.2 A full scale.
 
 Firmware calibrates offset/gain of VSET, ISET and both ADC channels against a DMM (store in
-NVS) and can close a slow digital loop on top of the analog one.
+flash) and can close a slow digital loop on top of the analog one.
 
-## MCU pin map (ESP32-S3-MINI-1-N8)
+## MCU pin map (STM32G431RBT6, LQFP-64)
 
-| GPIO | Function | GPIO | Function |
-|------|----------|------|----------|
-| IO1 | VIN monitor (VIN/11) | IO15 | PWM V+ (high = minimum) |
-| IO2 | V+ monitor (V+/16) | IO16 | PWM V- (low = minimum) |
-| IO4 | V- monitor ((3.3*120k + V-*10k)/130k) | IO17 | PWM OPA548 ILIM (high = 0 A) |
-| IO5 | NTC at the OPA548 (10k / NCP18XH103) | IO18 | fan PWM |
-| IO3 | STUSB4500 ALERT | IO8 / IO48 | I2C SDA / SCL (STUSB4500) |
-| IO6 | output relay | IO7 | OUT_EN: drive low to enable the OPA548 |
-| IO9 / IO10 | ADC CS / DAC CS | IO11/12/13 | analog SPI MOSI / SCK / MISO |
-| IO14 / IO21 | ADC DRDY / SYNC-RESET | IO19 / IO20 | USB D- / D+ (flash + debug over USB-C) |
-| IO35/36/37 | W5500 MOSI / SCK / MISO | IO38/39/40 | W5500 CS / INT / RST |
-| IO41 / IO42 | display DIN / CLK (TM1640) | IO33 / IO34 | buttons OUTPUT / MODE |
+No radio: control is over Ethernet only. Flashing: USB DFU over the USB-C (hold BOOT0 = SW2,
+press RESET = SW1) or SWD on J6 (3V3, SWDIO, SWCLK, NRST, GND). 8 MHz crystal (Y2) on PF0/PF1.
+
+| Pin | Function | Pin | Function |
+|-----|----------|-----|----------|
+| PA0 | VIN monitor (VIN/11), ADC1_IN1 | PB0 | PWM V+ (TIM3_CH3, high = minimum) |
+| PA1 | V+ monitor (V+/16), ADC1_IN2 | PB1 | PWM V- (TIM3_CH4, low = minimum) |
+| PA2 | V- monitor ((3.3*120k + V-*10k)/130k), ADC1_IN3 | PB10 | fan PWM (TIM2_CH3) |
+| PA3 | NTC at the OPA548, ADC1_IN4 | PB7 / PA15 | I2C1 SDA / SCL (STUSB4500) |
+| PC13 | STUSB4500 ALERT | PC9 | output relay |
+| PC8 | OUT_EN: drive low to enable the OPA548 | PA7 / PA5 / PA6 | SPI1 MOSI / SCK / MISO (ADC + DAC) |
+| PA4 / PC4 | ADC CS / DAC CS | PA11 / PA12 | USB D- / D+ (DFU + CDC over USB-C) |
+| PC5 / PB2 | ADC DRDY / SYNC-RESET | PB12 / PC6 / PC7 | W5500 CS / INT / RST |
+| PB15 / PB13 / PB14 | SPI2 MOSI / SCK / MISO (W5500) | PC0 / PC1 | buttons OUTPUT / MODE |
+| PC2 / PC3 | display DIN / CLK (TM1640) | | |
+
+Pins are assigned by side: each signal leaves the package on the side facing its destination
+(fewer crossings under the chip, easier fan-out). The OPA548 current limit is fixed (R109).
 
 ## Firmware notes (not part of this repo yet)
 
@@ -99,9 +105,9 @@ NVS) and can close a slow digital loop on top of the analog one.
   Without PD (5 V USB from a PC) the logic runs (flashing, Ethernet) but the rails stay off
   (converter UVLO ~13 V).
 - DAC8563: enable the internal reference after power-up.
-- Output on: rails -> ILIM -> E/S enable -> setpoint ramp from 0 V -> relay. Output off in
+- Output on: rails -> E/S enable -> setpoint ramp from 0 V -> relay. Output off in
   reverse; never switch the relay with current flowing.
-- Watchdog: if the firmware stalls, the pins keep their last state; use the ESP32 task watchdog
+- Watchdog: if the firmware stalls, the pins keep their last state; use the STM32 independent watchdog (IWDG)
   to reset (which returns everything to the safe defaults above).
 - Remote interface: SCPI over raw TCP (port 5025) is the natural choice.
 

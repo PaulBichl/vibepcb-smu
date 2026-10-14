@@ -16,24 +16,23 @@
 //   sense: V(S+) - V(S-) = 30 V - 24 * VSET. VSET/ISET from a 16-bit DAC8563 (0..2.5 V).
 //   Current: 0.1 R shunt in the LO return to GND, INA828 (G = 10, inputs swapped) -> -1 V/A.
 //   Two current-limit integrators (OPA2192) OR into the summing node through diodes: +-ISET/2 A.
-//   OPA548 hardware limit (ILIM pin, NPN mirror from a PWM-set PNP current source) is
-//   programmed just above the analog limit for fast protection; 0 A at reset.
+//   OPA548 hardware limit: fixed 1.12 A (49.9k ILIM resistor) as a fast backstop.
 //   Output relay (DPDT, both poles parallel) + OPA548 E/S (opto, disabled by default).
 // - Measure: ADS131M02 (24 bit, simultaneous V/I): V via 300k/10k dividers on S+/S-, I direct.
-// - Control: ESP32-S3-MINI-1 + W5500 Ethernet (SPI) + HR911105A magjack; Wi-Fi as a bonus.
+// - Control: STM32G431RBT6 (USB DFU + SWD) + W5500 Ethernet (SPI) + HR911105A magjack.
 import {
   ADS131M02IPWR, AO4407A, AP2112K_3_3TRG1, A2541WV_2x5P, B2B_XH_A_GU, BSC160N10NS3G, BZX84C51,
-  DAC8563SDGSR, DG301_5_0_04P_14_1000A_H_, ESP32_S3_MINI_1_N8, HFD4_5, HR911105A, INA828IDR,
+  DAC8563SDGSR, DG301_5_0_04P_14_1000A_H_, HFD4_5, HR911105A, INA828IDR,
   LM27761DSGR, LM5156HPWPR, LMR51635XDDCR, ME6211C33M5G_N, MMBT5401_RANGE_200_300_ as PNP,
   MMBT5551_RANGE_200_300_ as NPN, NX3225SA_25MHz_STD_CSR_6, NXA63V100M8_15_LO as ELCAP,
   OPA2192IDR, OPA548T, OT2JI_111_8_192M, PC817C, SMBJ24A, SMBJ36CA, SRP1265A_220M, SS5100,
-  STUSB4500QTR, SWPA6045S100MT, TS_1187A_B_A_B, TYPE_C_16PIN_2MD_073_, USBLC6_2SC6, W5500,
+  STM32G431RBT6, STUSB4500QTR, SWPA6045S100MT, TS_1187A_B_A_B, TYPE_C_16PIN_2MD_073_, USBLC6_2SC6, W5500,
+  X50328MSB2GI,
 } from "./imports"
 import { C, D4148, FERRITE, NMOS, R, RP, RSENSE, TRACE_MAX, net } from "./parts"
 
 const PWR = "0.8mm" // VIN / V+ / V- / output path
 const MID = "0.4mm" // 5 V, 3.3 V, switch-node-adjacent
-const ESP_GND = [1, 2, 42, 43, ...Array.from({ length: 16 }, (_, i) => 46 + i)].map((n) => `.U20 > .pin${n}`)
 
 export default () => (
   <board
@@ -225,21 +224,29 @@ export default () => (
     <trace from=".D3 > .A" to=".R24 > .pin1" maxLength={TRACE_MAX} />
 
     {/* ============================ MCU ============================ */}
-    {/* ESP32-S3-MINI-1, antenna over the rear edge, copper keepout under it */}
-    <ESP32_S3_MINI_1_N8 name="U20" pcbX={-28} pcbY={36.4} />
-    <keepout shape="rect" pcbX={-28} pcbY={47} width="18mm" height="6mm" layers={["top", "inner1", "inner2", "bottom"]} excludeRefs={[".U20"]} />
-    {/* no top-layer routing through the module's underside (inside its pad ring) */}
-    <keepout shape="rect" pcbX={-28} pcbY={36.4} width="12.8mm" height="12.8mm" layers={["top"]} excludeRefs={[".U20"]} />
-      <C name="C50" pcbX={-39.0} pcbY={42.5} pcbRotation={90} v="10uF" />
-      <C name="C51" pcbX={-39.0} pcbY={39} pcbRotation={90} v="100nF" />
-      <R name="R50" pcbX={-17} pcbY={43} v="10k" />
-      <C name="C52" pcbX={-17} pcbY={40.5} v="1uF" />
+    {/* STM32G431RBT6 (LQFP-64): SPI1 = ADC/DAC bus, SPI2 = W5500, I2C1 = STUSB4500, TIM3 CH3/4 = PWM, TIM2 CH3 = fan,
+        ADC1 IN1-4 = rail monitors + NTC, USB FS on PA11/PA12 (DFU bootloader via BOOT0), SWD on J6 */}
+    <STM32G431RBT6 name="U20" pcbX={-28} pcbY={36} />
+      <X50328MSB2GI name="Y2" pcbX={-37.5} pcbY={38.5} pcbRotation={90} loadCapacitance="20pF" />
+      <C name="C111" pcbX={-37.5} pcbY={43.5} v="22pF" />
+      <C name="C112" pcbX={-36.3} pcbY={34} v="22pF" />
+      <C name="C50" pcbX={-28} pcbY={44} v="10uF" />
+      <C name="C51" pcbX={-32} pcbY={44} v="100nF" />
+      <C name="C113" pcbX={-36} pcbY={31} pcbRotation={90} v="100nF" />
+      <C name="C114" pcbX={-21.5} pcbY={25.2} v="100nF" />
+      <C name="C115" pcbX={-20} pcbY={40} pcbRotation={90} v="100nF" />
+      <C name="C116" pcbX={-21.5} pcbY={28.6} v="1uF" />
+      <C name="C117" pcbX={-21.5} pcbY={26.9} v="100nF" />
+      <R name="R50" pcbX={-33} pcbY={46.5} v="10k" />
+      <C name="C52" pcbX={-30} pcbY={46.5} v="100nF" />
       <TS_1187A_B_A_B name="SW1" pcbX={-15} pcbY={33} />
-      <R name="R51" pcbX={-39.0} pcbY={35} pcbRotation={90} v="10k" />
+      <R name="R51" pcbX={-36} pcbY={46.5} v="10k" />
       <TS_1187A_B_A_B name="SW2" pcbX={-44} pcbY={21} />
-      <R name="R52" pcbX={-33} pcbY={24} pcbRotation={90} v="4.7k" />
-      <R name="R53" pcbX={-31} pcbY={24} pcbRotation={90} v="4.7k" />
-      <R name="R54" pcbX={-29} pcbY={24} pcbRotation={90} v="10k" />
+      <pinheader name="J6" pinCount={5} pitch="2.54mm" pcbX={-18} pcbY={47.5}
+        pinLabels={["V3V3", "SWDIO", "SWCLK", "NRST", "GND"]} />
+      <R name="R52" pcbX={-39.5} pcbY={48.1} v="4.7k" />
+      <R name="R53" pcbX={-39.5} pcbY={46.6} v="4.7k" />
+      <R name="R54" pcbX={-39.5} pcbY={45.1} v="10k" />
       {/* rail monitors (ADC1): VIN/11, V+/16, V- offset divider (3.3 V*120k + V-*10k)/130k */}
       <R name="R55" pcbX={-38} pcbY={18.5} v="100k" />
       <R name="R56" pcbX={-38} pcbY={16} v="10k" />
@@ -250,53 +257,59 @@ export default () => (
       <C name="C53" pcbX={-38} pcbY={13.5} v="100nF" />
       <C name="C54" pcbX={-34} pcbY={13.5} v="100nF" />
       <C name="C55" pcbX={-30} pcbY={13.5} v="100nF" />
-      {/* PWM pull-ups / pull-downs: rails at minimum, ILIM 0 A, relay / fan off at reset */}
+      {/* PWM pull-ups / pull-downs: rails at minimum, relay / fan off at reset */}
       <R name="R61" pcbX={-25} pcbY={21} pcbRotation={90} v="10k" />
       <R name="R62" pcbX={-23} pcbY={21} pcbRotation={90} v="100k" />
-      <R name="R63" pcbX={-21} pcbY={21} pcbRotation={90} v="10k" />
       <R name="R64" pcbX={-19} pcbY={21} pcbRotation={90} v="100k" />
       <R name="R65" pcbX={-17} pcbY={21} pcbRotation={90} v="100k" />
-    {net("V3V3", [".U20 > .3V3", ".C50 > .pin1", ".C51 > .pin1", ".R50 > .pin1", ".R51 > .pin1", ".R52 > .pin1",
-      ".R53 > .pin1", ".R54 > .pin1", ".R60 > .pin1", ".R61 > .pin1", ".R63 > .pin1"], { thickness: MID })}
-    {net("GND", [...ESP_GND, ".C50 > .pin2", ".C51 > .pin2", ".C52 > .pin2", ".SW1 > .pin2", ".SW2 > .pin2",
+    {net("V3V3", [".U20 > .VDD1", ".U20 > .VDD2", ".U20 > .VDD3", ".U20 > .VDD4", ".U20 > .VDDA", ".U20 > .VREF_POS",
+      ".U20 > .VBAT", ".C50 > .pin1", ".C51 > .pin1", ".C113 > .pin1", ".C114 > .pin1", ".C115 > .pin1", ".C116 > .pin1",
+      ".C117 > .pin1", ".R50 > .pin1", ".SW2 > .pin2", ".J6 > .pin1", ".R52 > .pin1", ".R53 > .pin1", ".R54 > .pin1",
+      ".R60 > .pin1", ".R61 > .pin1"], { thickness: MID })}
+    {net("GND", [".U20 > .VSS1", ".U20 > .VSS2", ".U20 > .VSS3", ".U20 > .VSS4", ".U20 > .VSSA", ".C50 > .pin2",
+      ".C51 > .pin2", ".C113 > .pin2", ".C114 > .pin2", ".C115 > .pin2", ".C116 > .pin2", ".C117 > .pin2", ".C111 > .pin2",
+      ".C112 > .pin2", ".C52 > .pin2", ".R51 > .pin1", ".SW1 > .pin2", ".J6 > .pin5",
       ".R56 > .pin2", ".R58 > .pin2", ".C53 > .pin2", ".C54 > .pin2", ".C55 > .pin2", ".R62 > .pin2", ".R64 > .pin2", ".R65 > .pin2"])}
-    {net("EN", [".U20 > .EN", ".R50 > .pin2", ".C52 > .pin1", ".SW1 > .pin1"])}
-    {net("BOOT", [".U20 > .IO0", ".R51 > .pin2", ".SW2 > .pin1"])}
-    {net("I2C_SCL", [".U20 > .IO48", ".R52 > .pin2"])}
-    {net("I2C_SDA", [".U20 > .IO8", ".R53 > .pin2"])}
-    {net("PD_ALERT", [".U20 > .IO3", ".R54 > .pin2"])}
-    {net("USB_DN", [".U20 > .IO19"])}
-    {net("USB_DP", [".U20 > .IO20"])}
+    {net("NRST", [".U20 > .PG10_NRST", ".R50 > .pin2", ".C52 > .pin1", ".SW1 > .pin1", ".J6 > .pin4"])}
+    {net("BOOT0", [".U20 > .PB8_BOOT0", ".R51 > .pin2", ".SW2 > .pin1"])}
+    {net("OSC_IN", [".U20 > .PF0_OSC_IN", ".Y2 > .pin1", ".C111 > .pin1"])}
+    {net("OSC_OUT", [".U20 > .PF1_OSC_OUT", ".Y2 > .pin2", ".C112 > .pin1"])}
+    {net("SWDIO", [".U20 > .PA13", ".J6 > .pin2"])}
+    {net("SWCLK", [".U20 > .PA14", ".J6 > .pin3"])}
+    {net("I2C_SCL", [".U20 > .PA15", ".R52 > .pin2"])}
+    {net("I2C_SDA", [".U20 > .PB7", ".R53 > .pin2"])}
+    {net("PD_ALERT", [".U20 > .PC13", ".R54 > .pin2"])}
+    {net("USB_DN", [".U20 > .PA11"])}
+    {net("USB_DP", [".U20 > .PA12"])}
     {net("VIN", [".R55 > .pin1"])}
-    {net("VIN_MON", [".U20 > .IO1", ".R55 > .pin2", ".R56 > .pin1", ".C53 > .pin1"])}
+    {net("VIN_MON", [".U20 > .PA0", ".R55 > .pin2", ".R56 > .pin1", ".C53 > .pin1"])}
     {net("VP", [".R57 > .pin1"])}
-    {net("VP_MON", [".U20 > .IO2", ".R57 > .pin2", ".R58 > .pin1", ".C54 > .pin1"])}
+    {net("VP_MON", [".U20 > .PA1", ".R57 > .pin2", ".R58 > .pin1", ".C54 > .pin1"])}
     {net("VN", [".R59 > .pin1"])}
-    {net("VN_MON", [".U20 > .IO4", ".R59 > .pin2", ".R60 > .pin2", ".C55 > .pin1"])}
-    {net("NTC", [".U20 > .IO5"])}
-    {net("RELAY", [".U20 > .IO6", ".R65 > .pin1"])}
-    {net("OUT_EN", [".U20 > .IO7"])}
-    {net("ADC_CS", [".U20 > .IO9"])}
-    {net("DAC_CS", [".U20 > .IO10"])}
-    {net("A_MOSI", [".U20 > .IO11"])}
-    {net("A_SCK", [".U20 > .IO12"])}
-    {net("A_MISO", [".U20 > .IO13"])}
-    {net("ADC_DRDY", [".U20 > .IO14"])}
-    {net("ADC_RST", [".U20 > .IO21"])}
-    {net("PWM_VP", [".U20 > .IO15", ".R61 > .pin2"])}
-    {net("PWM_VN", [".U20 > .IO16", ".R62 > .pin1"])}
-    {net("PWM_ILIM", [".U20 > .IO17", ".R63 > .pin2"])}
-    {net("FAN_PWM", [".U20 > .IO18", ".R64 > .pin1"])}
-    {net("E_MOSI", [".U20 > .IO35"])}
-    {net("E_SCK", [".U20 > .IO36"])}
-    {net("E_MISO", [".U20 > .IO37"])}
-    {net("ETH_CS", [".U20 > .IO38"])}
-    {net("ETH_INT", [".U20 > .IO39"])}
-    {net("ETH_RST", [".U20 > .IO40"])}
-    {net("DISP_DIN", [".U20 > .IO41"])}
-    {net("DISP_CLK", [".U20 > .IO42"])}
-    {net("BTN_OUT", [".U20 > .IO33"])}
-    {net("BTN_MODE", [".U20 > .IO34"])}
+    {net("VN_MON", [".U20 > .PA2", ".R59 > .pin2", ".R60 > .pin2", ".C55 > .pin1"])}
+    {net("NTC", [".U20 > .PA3"])}
+    {net("RELAY", [".U20 > .PC9", ".R65 > .pin1"])}
+    {net("OUT_EN", [".U20 > .PC8"])}
+    {net("ADC_CS", [".U20 > .PA4"])}
+    {net("DAC_CS", [".U20 > .PC4"])}
+    {net("A_MOSI", [".U20 > .PA7"])}
+    {net("A_SCK", [".U20 > .PA5"])}
+    {net("A_MISO", [".U20 > .PA6"])}
+    {net("ADC_DRDY", [".U20 > .PC5"])}
+    {net("ADC_RST", [".U20 > .PB2"])}
+    {net("PWM_VP", [".U20 > .PB0", ".R61 > .pin2"])}
+    {net("PWM_VN", [".U20 > .PB1", ".R62 > .pin1"])}
+    {net("FAN_PWM", [".U20 > .PB10", ".R64 > .pin1"])}
+    {net("E_MOSI", [".U20 > .PB15"])}
+    {net("E_SCK", [".U20 > .PB13"])}
+    {net("E_MISO", [".U20 > .PB14"])}
+    {net("ETH_CS", [".U20 > .PB12"])}
+    {net("ETH_INT", [".U20 > .PC6"])}
+    {net("ETH_RST", [".U20 > .PC7"])}
+    {net("DISP_DIN", [".U20 > .PC2"])}
+    {net("DISP_CLK", [".U20 > .PC3"])}
+    {net("BTN_OUT", [".U20 > .PC0"])}
+    {net("BTN_MODE", [".U20 > .PC1"])}
 
     {/* ============================ Ethernet ============================ */}
     <HR911105A name="J2" pcbX={0} pcbY={37} pcbRotation={180} />
@@ -487,16 +500,9 @@ export default () => (
       <PC817C name="U41" pcbX={68} pcbY={27} />
       <R name="R108" pcbX={75} pcbY={34} pcbRotation={90} v="680" />
       <C name="C105" pcbX={68} pcbY={31.5} v="1nF" />
-      {/* ILIM: PNP current source (27k from 3.3 V, PWM base) into an NPN mirror on V-;
-          ILIM = 15000 * I = 0 .. 1.47 A, 0 A at reset (base pulled up) */}
-      <PNP name="Q40" pcbX={48.5} pcbY={25} />
-      <R name="R109" pcbX={48.5} pcbY={21.5} v="27k" />
-      <R name="R110" pcbX={52} pcbY={25} v="10k" />
-      <C name="C106" pcbX={52} pcbY={21.5} v="1uF" />
-      <NPN name="Q41" pcbX={55.5} pcbY={25} />
-      <NPN name="Q42" pcbX={59.5} pcbY={25} />
-      <R name="R111" pcbX={55.5} pcbY={21.5} v="1k" />
-      <R name="R112" pcbX={59.5} pcbY={21.5} v="1k" />
+      {/* ILIM: fixed hardware limit, R_CL from ILIM to V-: 15000 * 4.75 V / (49.9k + 13.75k) = 1.12 A
+          (the analog loop limits precisely below that; the OPA548 is disabled via E/S at reset) */}
+      <R name="R109" pcbX={52} pcbY={23} v="49.9k" />
       <SS5100 name="D40" pcbX={70} pcbY={19} />
       <SS5100 name="D41" pcbX={70} pcbY={14} />
       <R name="R113" pcbX={73} pcbY={41} pcbRotation={90} v="10k" />
@@ -506,9 +512,9 @@ export default () => (
       supplierPartNumbers={{ jlcpcb: ["C13564"] }} pcbX={70} pcbY={41} />
     {net("VP", [".U40 > .V_POS", ".C100 > .pin1", ".C101 > .pin1", ".D40 > .cathode"], { thickness: PWR })}
     {net("VN", [".U40 > .V_NEG", ".C102 > .pin2", ".C103 > .pin2", ".D41 > .anode", ".U41 > .EM", ".C105 > .pin2",
-      ".R111 > .pin2", ".R112 > .pin2"], { thickness: PWR })}
+      ".R109 > .pin2"], { thickness: PWR })}
     {net("GND", [".C100 > .pin2", ".C101 > .pin2", ".C102 > .pin1", ".C103 > .pin1", ".R105 > .pin2", ".R106 > .pin2",
-      ".R107 > .pin2", ".U41 > .CAT", ".C106 > .pin2", ".RT1 > .pin2", ".C107 > .pin2"])}
+      ".R107 > .pin2", ".U41 > .CAT", ".RT1 > .pin2", ".C107 > .pin2"])}
     {net("AMP_OUT", [".U40 > .VO", ".C104 > .pin1", ".D40 > .anode", ".D41 > .cathode"], { thickness: PWR })}
     {net("SUMN", [".U40 > .VIN_NEG", ".R100 > .pin2", ".R101 > .pin2", ".R102 > .pin2", ".R103 > .pin2", ".C104 > .pin2"])}
     {net("VSET", [".R100 > .pin1", ".R101 > .pin1"])}
@@ -517,15 +523,9 @@ export default () => (
     {net("SMINUS", [".R104 > .pin1"])}
     {net("SUMP", [".U40 > .VIN_POS", ".R104 > .pin2", ".R105 > .pin1", ".R106 > .pin1", ".R107 > .pin1"])}
     {net("ES", [".U40 > .ES", ".U41 > .COL", ".C105 > .pin1"])}
-    {net("V3V3", [".R108 > .pin1", ".R109 > .pin1", ".R113 > .pin1"])}
+    {net("V3V3", [".R108 > .pin1", ".R113 > .pin1"])}
     {net("OUT_EN", [".U41 > .AN", ".R108 > .pin2"])}
-    <trace from=".Q40 > .E" to=".R109 > .pin2" maxLength={TRACE_MAX} />
-    {net("ILIM_CTL", [".Q40 > .B", ".R110 > .pin2", ".C106 > .pin1"])}
-    {net("PWM_ILIM", [".R110 > .pin1"])}
-    {net("MIR", [".Q40 > .C", ".Q41 > .C", ".Q41 > .B", ".Q42 > .B"])}
-    <trace from=".Q41 > .E" to=".R111 > .pin1" maxLength={TRACE_MAX} />
-    <trace from=".Q42 > .E" to=".R112 > .pin1" maxLength={TRACE_MAX} />
-    {net("ILIM", [".U40 > .ILIM", ".Q42 > .C"])}
+    {net("ILIM", [".U40 > .ILIM", ".R109 > .pin1"])}
     {net("NTC", [".RT1 > .pin1", ".R113 > .pin2", ".C107 > .pin1"])}
 
     {/* relay (both poles in parallel), sense resistors, shunt, TVS, output terminal */}

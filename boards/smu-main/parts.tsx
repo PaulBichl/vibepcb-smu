@@ -15,6 +15,7 @@ const RES_PREC: Record<string, string> = {
 // capacitors: value -> [footprint, LCSC]
 const CAP: Record<string, [string, string]> = {
   "15pF": ["0603", "C1644"],
+  "22pF": ["0603", "C1653"],
   "470pF": ["0603", "C1620"],
   "1nF": ["0603", "C1588"],
   "4.7nF": ["0603", "C53987"],
