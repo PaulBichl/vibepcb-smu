@@ -544,7 +544,12 @@ export default () => (
     {net("RLY_D", [".K1 > .COIL_N", ".D42 > .anode", ".Q43 > .D"])}
     {net("RELAY", [".Q43 > .G"])}
     {net("GND", [".Q43 > .S", ".R117 > .pin2"], { thickness: PWR })}
-    {net("AMP_OUT", [".K1 > .COM1", ".K1 > .COM2", ".R114 > .pin1"], { thickness: PWR })}
+    {/* R118: isolates the OPA548 from the output capacitance (C108 + the load); without it the amp
+        oscillates into 1 uF (TI model, sim/perf.sh). C104 keeps the fast feedback on the amp side. */}
+    <resistor name="R118" resistance="0.47" footprint="2512" manufacturerPartNumber="HoJLR2512-2W-470mR-1%-75ppm"
+      supplierPartNumbers={{ jlcpcb: ["C2924582"] }} pcbX={54} pcbY={14} pcbRotation={0} />
+    {net("AMP_OUT", [".R114 > .pin1", ".R118 > .pin1"], { thickness: PWR })}
+    {net("AMP_ISO", [".K1 > .COM1", ".K1 > .COM2", ".R118 > .pin2"], { thickness: PWR })}
     {net("HI", [".K1 > .NO1", ".K1 > .NO2", ".J3 > .pin1", ".R115 > .pin1", ".D43 > .pin1", ".C108 > .pin1"], { thickness: PWR })}
     {net("SPLUS", [".J3 > .pin2", ".R114 > .pin2", ".R115 > .pin2"])}
     {net("SMINUS", [".J3 > .pin3", ".R116 > .pin2"])}

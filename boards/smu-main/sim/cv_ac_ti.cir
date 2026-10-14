@@ -1,0 +1,38 @@
+* CV loop only (current limiters idle = diodes off, left out so the DC point converges),
+* TI vendor models, for AC (loop gain, bandwidth, output impedance) and noise.
+* Loop broken at the OPA548 output (Vinj: amp output impedance << load) -> T = -V(out)/V(ao).
+* Reference: one 2.5 V reference feeds the DAC (VSET = D * Vref) and REFN = -Vref, so its noise
+* cancels at Vout = 0 and is 12x at +-30 V. Noise sources as series resistors behind buffers:
+* Rrn = (250 nV/rtHz)^2 / 4kT (DAC8563 internal ref), Rdn = (90 nV/rtHz)^2 / 4kT (DAC output).
+.include vendor/OPA548.LIB
+.include models.inc
+.param d=0.4167 rl=20 vpr=14 vnr=-5 cl=1u riso=0.47 cf=4.7n inj=0 iac=0
+VP vplus 0 {vpr}
+VN vminus 0 {vnr}
+Vr0 ref0 0 2.5
+Rrn ref0 ref 3.77Meg
+Ed1 vsa 0 ref 0 {d}
+Rdn vsa vsb 489k
+Es vsetn vsx vsb 0 1
+VS vsx 0 0 AC {1-inj-iac}
+Ern refn 0 ref 0 -1
+Rin vsetn n 5k
+Roff refn n 10k
+Rf splus n 120k
+Cf out n {cf}
+Rpa sminus p 120k
+Rpb p 0 3.3333k
+XPA p n ilim vminus vplus ao es OPA548
+Vinj ao out 0 AC {inj}
+RCL ilim vminus 49.9k
+Res es 0 1e12
+Riso out ro {riso}
+Rrly ro hi 0.05
+Rsp hi splus 100
+Rsl out splus 4.7k
+Rsm lo sminus 100
+RL hi lo {rl}
+CL hi lo {cl}
+Rs lo 0 0.1
+Iac lo hi 0 AC {iac}
+.end

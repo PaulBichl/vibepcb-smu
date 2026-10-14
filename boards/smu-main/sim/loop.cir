@@ -23,7 +23,9 @@ Rpa sminus p 120k
 Rpb p 0 3.3333k
 * OPA548 hardware limit: firmware programs it to ~1.1*Ilim + 0.15 A (ILIM current sink)
 XPA p n out vplus vminus opa548 ilim={ihw}
-Rrly out hi 0.05
+* R118 isolation resistor (see loop_ti.cir)
+Riso out ro 0.47
+Rrly ro hi 0.05
 Rsp hi splus 100
 Rsl out splus 4.7k
 Rsm lo sminus 100

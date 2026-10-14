@@ -53,7 +53,8 @@ ADS131M02: V = (S+ - S-)/31, I = INA828 output    STM32G431 <-> W5500 <-> RJ45, 
   I = 15000 * 4.75 V / (13.75k + R)). It catches load steps in microseconds; the precise analog
   limit takes over within ~2-7 ms.
 - Output relay (HFD4/5, both poles in parallel), output TVS (SMBJ36CA), clamp diodes from the
-  amplifier output to both rails, 1 uF across the terminals.
+  amplifier output to both rails, 1 uF across the terminals. R118 (0.47 Ohm) between amplifier and
+  relay keeps the OPA548 stable into capacitive loads (see Performance estimates).
 
 ### Tracking rails
 
@@ -77,6 +78,35 @@ ADS131M02 (24 bit, simultaneous sampling, internal 1.2 V reference, 8.192 MHz os
 
 Firmware calibrates offset/gain of VSET, ISET and both ADC channels against a DMM (store in
 flash) and can close a slow digital loop on top of the analog one.
+
+## Performance estimates (simulated)
+
+`boards/smu-main/sim/perf.sh` runs the loop with TI's vendor models (OPA548, INA828, OPA2192;
+`fetch_models.sh` downloads them, they are not committed) in ngspice, rails tracking as the
+firmware sets them. DAC8563 noise from its datasheet (90 nV/rtHz DAC + 250 nV/rtHz internal
+reference, which also feeds REFN, so it cancels at 0 V out). Not simulated: switcher ripple /
+PSRR, drift, INL, layout parasitics.
+
+| Quantity | Estimate |
+|----------|----------|
+| Setting resolution | V: 0.92 mV (16 bit over 60 V), I limit: 19 uA (16 bit over 1.25 A) |
+| Uncalibrated error (nominal parts) | V: +90 mV offset (OPA548 Vos/Ib x noise gain 37); I: +0.7 % gain (INA828 G = 9.93) - both removed by the 2-point calibration; 0.1 % resistors add ~0.15 % gain |
+| Measurement noise (ADS131M02, 1 kSPS) | V: ~0.1 mVrms (3 uVrms x 31 divider); I: ~4 uArms (ADC + INA828) |
+| Four quadrants | +-10 V / +-1 A source and +-11.5 V / 0.5 A sink cases regulate as set |
+| Setpoint bandwidth | 270 Hz (-3 dB); 10-90 % rise 1.24 ms; within 10 mV of a 10 V step after ~4 ms; no overshoot with 1 / 10 / 100 uF loads |
+| CV loop | phase margin 53 deg (1 uF on board only), 79 deg (+10 uF), 81 deg (+100 uF); crossover ~450 kHz |
+| Output impedance (CV) | 23 mOhm at 10 Hz, 0.2 Ohm at 100 Hz, 0.59 Ohm at 1-10 kHz |
+| Load step 0.5 -> 1 A at 10 V | dips 0.29 V, back within 10 mV after 0.63 ms |
+| Short at 1 A limit | peak 1.20 A (OPA548 limit), within 1 % of 1 A after 6.6 ms; short removed: no overshoot |
+| Output noise (10 Hz-100 kHz) | 97 uVrms at 0 V, 115 uVrms at 30 V; 1.15 uV/rtHz at 1 kHz |
+| OPA548 dissipation at 1 A | source: 4-4.5 W (tracking rails); sink: (Vout + 5 V) x I, 35 W at +30 V |
+| Heatsink (Tj <= 125 C, Ta 35 C) | 4.5 W: <= 18 K/W (passive); 25 W firmware limit: <= 1.7 K/W (fan); sink at 30 V / 0.71 A max under 25 W |
+| USB-C PD input | worst case (source 30 V / 1 A) ~43 W -> ~2.2 A at 20 V: a 60 W (3 A) PD supply |
+
+Found by the vendor models: the OPA548 oscillates into the 1 uF output capacitor (0.73 Vpp at
+10 V out, `dc0_without_r118`); the behavioural model (`loop.cir`, single pole) hid it. R118
+(0.47 Ohm, 2 W) between the amplifier and the relay isolates it; C104 keeps the fast feedback
+on the amplifier side, the remote sense removes its DC drop.
 
 ## MCU pin map (STM32G431RBT6, LQFP-64)
 
