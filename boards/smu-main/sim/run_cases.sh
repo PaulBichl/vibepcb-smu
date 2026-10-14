@@ -25,7 +25,6 @@ $(tr ';' '\n' <<< "$extra")
 .end
 DECK
   sed -i "s|^.include loop.cir|.include $(pwd)/loop.cir|" /tmp/smu_case.cir
-  sed -i "s|^.include models.inc|.include $(pwd)/models.inc|" loop.cir
   out=$(ngspice -b /tmp/smu_case.cir 2>&1)
   vo=$(grep -E '^vo ' <<< "$out" | awk '{print $3}'); io=$(grep -E '^io ' <<< "$out" | awk '{print $3}')
   printf '%-62s Vout=%9.4f V  I=%8.4f A\n' "$name" "$vo" "$io"
